@@ -79,16 +79,14 @@ class Treatment(models.Model):
         ("adult", "adult"),
            ]
 
-            patient = models.ForeignKey(Patient, on_delete=models.CASCADE, verbose_name='Patient')
-            cancer = models.ForeignKey(Image,  on_delete=models.CASCADE, verbose_name='Cancer')
-            tImage = models.ImageField(upload_to='treatment', verbose_name='Treatment Image')
-            name = models.CharField(verbose_name='Treatment_name',max_length=50)
-            dosage = models.IntegerField(verbose_name='Treatment Dosage ')
-            Expiration_date = models.DateField(verbose_name='Treatment Expiration date')
-            company= models.CharField(max_length=50,verbose_name='Company of product ')
-            age_categories=models.CharField(max_length=20, choices=CHOICES, verbose_name='Age Categories' )
-            befror_eating = models.BooleanField(default=True)
 
+            tImage = models.ImageField(upload_to='treatment', verbose_name='Treatment Image')
+            name = models.CharField(verbose_name='Treatment Name', max_length=50)
+            dosage = models.IntegerField(verbose_name='Treatment Daily  Dosage ')
+            Expiration_date = models.DateField(verbose_name='Treatment Expiration date')
+            company= models.CharField(max_length=50, verbose_name='Company of product ')
+            age_categories=models.CharField(max_length=20, choices=CHOICES, verbose_name='Age Categories')
+            before_eating = models.BooleanField(default=True , verbose_name='Before Eating ')
             class Meta:
                 verbose_name = "Treatment"
                 verbose_name_plural = "Treatments"
