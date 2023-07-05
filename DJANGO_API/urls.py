@@ -37,9 +37,13 @@ from django.urls import path
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('prediction', views.predictapiAPI.as_view(), name='prediction'),
+    # url for  register  http://localhost:8000/register/
+    path('register/', views.RegisterAPI.as_view(), name='register'),
     path('', include('test1.urls')),
     path('', include('accounts.urls')),
-    path('show_data/', views.get_data, name='show_data')
+    path('show_data/', views.get_data, name='show_data'),
+    # path('auth', include('dj_rest_auth.urls')),
+
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
